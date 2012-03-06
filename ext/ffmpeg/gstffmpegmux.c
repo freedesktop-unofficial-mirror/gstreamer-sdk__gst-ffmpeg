@@ -782,7 +782,7 @@ gst_ffmpegmux_collected (GstCollectPads * pads, gpointer user_data)
 static GstStateChangeReturn
 gst_ffmpegmux_change_state (GstElement * element, GstStateChange transition)
 {
-  GstFlowReturn ret;
+  GstStateChangeReturn ret;
   GstFFMpegMux *ffmpegmux = (GstFFMpegMux *) (element);
 
   switch (transition) {
