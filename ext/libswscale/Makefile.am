@@ -8,7 +8,9 @@ libgstffmpegscale_la_LIBADD = $(SWSCALE_LIBS) \
 	$(GST_PLUGINS_BASE_LIBS) -lgstvideo-$(GST_MAJORMINOR) \
 	$(GST_BASE_LIBS) $(ORC_LIBS) $(LIBM) -lz
 libgstffmpegscale_la_LDFLAGS = $(GST_PLUGIN_LDFLAGS) $(DARWIN_LDFLAGS)
+if !GST_PLUGIN_BUILD_STATIC
 libgstffmpegscale_la_LIBTOOLFLAGS = --tag=disable-static
+endif
 
 if HAVE_FFMPEG_UNINSTALLED
 libgstffmpegscale_la_DEPENDENCIES = $(SWSCALE_LIBS)

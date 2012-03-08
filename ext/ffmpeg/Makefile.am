@@ -23,7 +23,9 @@ libgstffmpeg_la_SOURCES = gstffmpeg.c	\
 libgstffmpeg_la_CFLAGS = $(FFMPEG_CFLAGS) $(GST_PLUGINS_BASE_CFLAGS) $(GST_CFLAGS)
 libgstffmpeg_la_LIBADD = $(FFMPEG_LIBS) $(GST_BASE_LIBS) $(GST_PLUGINS_BASE_LIBS) -lgstaudio-$(GST_MAJORMINOR) -lgstpbutils-$(GST_MAJORMINOR) $(LIBM) $(WIN32_LIBS) -lz $(BZ2_LIBS)
 libgstffmpeg_la_LDFLAGS = $(GST_PLUGIN_LDFLAGS) $(DARWIN_LDFLAGS)
+if !GST_PLUGIN_BUILD_STATIC
 libgstffmpeg_la_LIBTOOLFLAGS = --tag=disable-static
+endif
 
 if HAVE_FFMPEG_UNINSTALLED
 libgstffmpeg_la_DEPENDENCIES = $(FFMPEG_LIBS)

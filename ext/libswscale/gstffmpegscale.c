@@ -816,9 +816,9 @@ plugin_init (GstPlugin * plugin)
       GST_RANK_NONE, GST_TYPE_FFMPEGSCALE);
 }
 
-GST_PLUGIN_DEFINE (GST_VERSION_MAJOR,
+GST_PLUGIN_DEFINE2 (GST_VERSION_MAJOR,
     GST_VERSION_MINOR,
-    "ffvideoscale",
+    ffvideoscale,
     "videoscaling element (" FFMPEG_SOURCE ")", plugin_init, PACKAGE_VERSION,
 #ifdef GST_FFMPEG_ENABLE_LGPL
     "LGPL",
