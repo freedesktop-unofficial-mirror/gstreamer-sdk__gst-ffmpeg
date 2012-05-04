@@ -368,7 +368,7 @@ else
   esac
 
   dnl hack to allow passing several extra configure options to ffmpeg from a file
-  embffmpeg_configure_args="$embffmpeg_configure_args `cat $(top_srcdir)/ffmpeg_extra_configure_options`"
+  embffmpeg_configure_args="$embffmpeg_configure_args `cat ffmpeg_extra_configure_options`"
 
 
   dnl checks for extra enable/disable flags
