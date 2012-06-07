@@ -3,4 +3,4 @@
         url = git://anongit.freedesktop.org/gstreamer/common
 [submodule "gst-libs/ext/libav"]
 	path = gst-libs/ext/libav
-	url = git+ssh://git.keema.collabora.co.uk/git/gst-sdk/libav.git
+	url = git://anongit.freedesktop.org/gstreamer-sdk/libav
