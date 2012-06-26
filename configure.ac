@@ -332,11 +332,12 @@ else
   embffmpeg_configure_args="--prefix=$prefix"
 
   # Enable pic and static so that we get .a files, but with PIC code.
-  embffmpeg_configure_args="$embffmpeg_configure_args --disable-ffserver --disable-ffplay\
-        --disable-ffmpeg --disable-ffprobe --enable-static --enable-pic \
+  embffmpeg_configure_args="$embffmpeg_configure_args --disable-avserver --disable-avplay\
+        --disable-ffmpeg --disable-avprobe --enable-static --enable-pic \
 	--disable-encoder=flac --disable-decoder=cavs --disable-protocols --disable-devices\
 	--disable-network --disable-hwaccels --disable-filters --disable-doc\
 	--enable-optimizations"
+
 
   if test "x$enable_lgpl" != "xyes"; then
     embffmpeg_configure_args="$embffmpeg_configure_args --enable-postproc \
