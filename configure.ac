@@ -292,6 +292,9 @@ else
 		 -I \$(top_builddir)/gst-libs/ext/libav \
                  -Wno-deprecated-declarations"
 
+  FFMPEG_DEPS="\$(top_builddir)/gst-libs/ext/libav/libavformat/libavformat.a \
+               \$(top_builddir)/gst-libs/ext/libav/libavcodec/libavcodec.a \
+               \$(top_builddir)/gst-libs/ext/libav/libavutil/libavutil.a"
   if test "x$enable_static_plugins" = xyes; then
       dnl with static linking we can't use the .a archive directly as they would
       dnl be included in the final libgstffmpeg.a as a file and won't be usable.
@@ -299,9 +302,7 @@ else
       FFMPEG_LIBS="-lavformat -lavcodec -lavutil"
   else
       dnl libgstffmpeg.la: libs to statically link to
-      FFMPEG_LIBS="\$(top_builddir)/gst-libs/ext/libav/libavformat/libavformat.a \
-                   \$(top_builddir)/gst-libs/ext/libav/libavcodec/libavcodec.a \
-                   \$(top_builddir)/gst-libs/ext/libav/libavutil/libavutil.a"
+      FFMPEG_LIBS="$FFMPEG_DEPS"
   fi
 
   dnl
@@ -433,6 +434,7 @@ fi
 
 AC_SUBST(FFMPEG_CFLAGS)
 AC_SUBST(FFMPEG_LIBS)
+AC_SUBST(FFMPEG_DEPS)
 AC_SUBST(FFMPEG_SUBDIRS)
 AC_SUBST(POSTPROC_CFLAGS)
 AC_SUBST(POSTPROC_LIBS)

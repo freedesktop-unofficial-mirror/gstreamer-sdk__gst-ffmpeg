@@ -28,7 +28,7 @@ libgstffmpeg_la_LIBTOOLFLAGS = --tag=disable-static
 endif
 
 if HAVE_FFMPEG_UNINSTALLED
-libgstffmpeg_la_DEPENDENCIES = $(FFMPEG_LIBS)
+libgstffmpeg_la_DEPENDENCIES = $(FFMPEG_DEPS)
 endif
 
 
