@@ -1761,6 +1761,24 @@ gst_ffmpeg_pixfmt_to_caps (enum PixelFormat pix_fmt, AVCodecContext * context,
     case PIX_FMT_YUV411P:
       fmt = GST_MAKE_FOURCC ('Y', '4', '1', 'B');
       break;
+    case PIX_FMT_YUV420P10BE:
+      fmt = GST_MAKE_FOURCC ('D', '4', '2', '0');
+      break;
+    case PIX_FMT_YUV420P10LE:
+      fmt = GST_MAKE_FOURCC ('d', '4', '2', '0');
+      break;
+    case PIX_FMT_YUV422P10BE:
+      fmt = GST_MAKE_FOURCC ('D', '4', '2', '2');
+      break;
+    case PIX_FMT_YUV422P10LE:
+      fmt = GST_MAKE_FOURCC ('d', '4', '2', '2');
+      break;
+    case PIX_FMT_YUV444P10BE:
+      fmt = GST_MAKE_FOURCC ('D', '4', '4', '4');
+      break;
+    case PIX_FMT_YUV444P10LE:
+      fmt = GST_MAKE_FOURCC ('d', '4', '4', '4');
+      break;
     case PIX_FMT_RGB565:
       bpp = depth = 16;
       endianness = G_BYTE_ORDER;
@@ -2132,11 +2150,27 @@ gst_ffmpeg_caps_to_pixfmt (const GstCaps * caps,
         case GST_MAKE_FOURCC ('Y', 'U', 'V', '9'):
           context->pix_fmt = PIX_FMT_YUV410P;
           break;
-#if 0
-        case FIXME:
+        case GST_MAKE_FOURCC ('Y', '4', '4', '4'):
           context->pix_fmt = PIX_FMT_YUV444P;
           break;
-#endif
+        case GST_MAKE_FOURCC ('D', '4', '2', '0'):
+          context->pix_fmt = PIX_FMT_YUV420P10BE;
+          break;
+        case GST_MAKE_FOURCC ('d', '4', '2', '0'):
+          context->pix_fmt = PIX_FMT_YUV420P10LE;
+          break;
+        case GST_MAKE_FOURCC ('D', '4', '2', '2'):
+          context->pix_fmt = PIX_FMT_YUV422P10BE;
+          break;
+        case GST_MAKE_FOURCC ('d', '4', '2', '2'):
+          context->pix_fmt = PIX_FMT_YUV422P10BE;
+          break;
+        case GST_MAKE_FOURCC ('D', '4', '4', '4'):
+          context->pix_fmt = PIX_FMT_YUV444P10BE;
+          break;
+        case GST_MAKE_FOURCC ('d', '4', '4', '4'):
+          context->pix_fmt = PIX_FMT_YUV444P10BE;
+          break;
       }
     }
   } else if (strcmp (gst_structure_get_name (structure),
