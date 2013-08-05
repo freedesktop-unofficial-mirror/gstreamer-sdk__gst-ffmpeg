@@ -369,13 +369,6 @@ else
   fi
 
   case $host_os in
-    # Unfortunately, in Mac OS 10.5 the current rev of ffmpeg builds
-    # some non-PIC code into the .a file. See
-    # http://trac.macosforge.org/projects/macports/ticket/13725 for more
-    # info.
-    darwin*) 
-      embffmpeg_configure_args="$embffmpeg_configure_args --disable-mmx --disable-altivec"
-      ;;
     mingw32*)
       embffmpeg_configure_args="$embffmpeg_configure_args --enable-memalign-hack"
       WIN32_LIBS="-lws2_32"
